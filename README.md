@@ -12,7 +12,7 @@ Manzilix is a digital education counselling platform that helps students get gui
 
 ## Tech Stack
 
-- **LLM:** Claude Haiku 4.5 (general assistant tasks) / Claude Sonnet 4.6 (complex recommendations)
+- **LLM:** Evaluating NVIDIA Nemotron 3 Ultra (via NIM API) and Claude Haiku 4.5 / Sonnet 4.6
 - **Frontend:** _TBD_
 - **Backend:** _TBD_
 - **Database:** _TBD_
@@ -28,7 +28,20 @@ git clone https://github.com/<your-username>/Manzilix-Education-Counselling.git
 cd Manzilix-Education-Counselling
 ```
 
-_Setup instructions coming soon._
+### LLM Module Setup
+
+The `llm.py` module wraps the chat model used by the assistant (currently NVIDIA Nemotron via the NIM API).
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env   # then fill in your real API key
+export NVIDIA_API_KEY="your-real-key"   # PowerShell: setx NVIDIA_API_KEY "your-real-key"
+python test_llm.py
+```
+
+> ⚠️ Never commit real API keys. `.env` is gitignored — only `.env.example` should be tracked.
+
+_Further setup instructions coming soon._
 
 ## License
 
